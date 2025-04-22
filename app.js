@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const playlistSelectorList = document.getElementById('playlistSelectorList');
     
     // Default JSON URL - update to point to M3U file
-    const DEFAULT_JSON_URL = 'https://raw.githubusercontent.com/byte-capsule/Toffee-Channels-Link-Headers/refs/heads/main/toffee_OTT_Navigator.m3u';
+    const DEFAULT_JSON_URL = 'https://m3u.ch/pl/59e9a608c3dd91dae2d9ec1fc9dbf52a_0989dd3fbd4c4512315b5b25e668cbf1.m3u';
     const DEFAULT_PLAYLIST_NAME = 'Default Playlist';
     
     // Global variables
