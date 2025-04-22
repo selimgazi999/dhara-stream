@@ -1,4 +1,4 @@
-name: Build APK
+name: Build Electron App for Windows
 
 on:
   push:
@@ -6,27 +6,25 @@ on:
 
 jobs:
   build:
-    name: Build APK
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up JDK
-        uses: actions/setup-java@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          distribution: 'temurin'
-          java-version: 17
+          node-version: 18
 
-      - name: Give gradlew permission
-        run: chmod +x ./gradlew
+      - name: Install dependencies
+        run: npm install
 
-      - name: Build with Gradle
-        run: ./gradlew assembleRelease
+      - name: Build Windows App
+        run: npm run build:win
 
-      - name: Upload APK
+      - name: Upload .exe Installer
         uses: actions/upload-artifact@v3
         with:
-          name: app-release.apk
-          path: app/build/outputs/apk/release/app-release.apk
+          name: windows-installer
+          path: dist/*.exe
